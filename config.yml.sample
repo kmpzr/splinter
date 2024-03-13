@@ -1,0 +1,29 @@
+db:
+  username: splinter
+  password: splinter
+  hostname: localhost
+  hostport: 5432
+  database: splinter
+pipelines:
+  - name: "test"
+    check_interval: 2
+    http_client_timeout: 5
+    jenkins_base_url: "http://jenkins.docker.localhost"
+    jenkins_job_path: "/job/test"
+    jenkins_wfapi_describe_path: "/job/test/wfapi/describe"
+    jenkins_wfapi_runs_path: "/job/test/wfapi/runs"
+    jenkins_api_describe_path: "/job/test/api/json"
+    logical_split: "main"
+    http_auth_user: "admin"
+    http_auth_pass: "longtoken"
+  - name: "bar"
+    check_interval: 2
+    http_client_timeout: 5
+    jenkins_base_url: "http://jenkins.docker.localhost"
+    jenkins_job_path: "/job/bar"
+    jenkins_wfapi_describe_path: "/job/bar/wfapi/describe"
+    jenkins_wfapi_runs_path: "/job/bar/wfapi/runs"
+    jenkins_api_describe_path: "/job/bar/api/json"
+    logical_split: "main"
+    http_auth_user: "admin"
+    http_auth_pass: "longtoken"
